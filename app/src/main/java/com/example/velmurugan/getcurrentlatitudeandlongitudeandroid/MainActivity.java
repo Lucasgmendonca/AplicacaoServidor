@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Veiculo veiculo;
     private LocationThread locationThread;
     private Semaphore semaphore;
-    private final ServicoTransporte servicoTransporte = new ServicoTransporte(1, "31-07-2023 18:00:00", "31-07-2023 18:01:00");
+    private ServicoTransporte servicoTransporte;
 
     /**
      * Método chamado quando a Activity é criada. Ele é responsável por configurar a interface do usuário,
@@ -42,11 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this); // Inicializa o Firebase
 
-        Carga carga1 = new Carga( "Carga 2");
-        servicoTransporte.getCargas().add(carga1);
-
-        Motorista motorista1 = new Motorista("Lucas");
-        servicoTransporte.getMotoristas().add(motorista1);
+        exibirLayoutParaInserirDados();
 
         // Inicializa os elementos de interface
         tvLatitude = findViewById(R.id.latitude);
@@ -89,6 +86,51 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Método para exibir o novo layout para a entrada de dados da nova carga
+    private void exibirLayoutParaInserirDados() {
+        // Infla o layout personalizado
+        View novoLayoutView = getLayoutInflater().inflate(R.layout.nova_carga, null);
+
+        // Captura o EditText do layout personalizado
+        EditText etDescricaoCarga = novoLayoutView.findViewById(R.id.etDescricaoCarga);
+        EditText etNomeMotorista = novoLayoutView.findViewById(R.id.etNomeMotorista);
+        EditText etNumeroIdentificacao = novoLayoutView.findViewById(R.id.etNumeroIdentificacao);
+        EditText etDataHoraInicio = novoLayoutView.findViewById(R.id.etDataHoraInicio);
+        EditText etDataHoraFim = novoLayoutView.findViewById(R.id.etDataHoraFim);
+
+        // Cria um AlertDialog personalizado
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(novoLayoutView);
+        AlertDialog dialog = builder.create();
+
+        // Define o comportamento do botão de confirmação
+        Button btnConfirmar = novoLayoutView.findViewById(R.id.btnConfirmar);
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Aqui, você pode pegar a entrada do usuário e criar uma nova instância de Carga
+                String descricaoCarga = etDescricaoCarga.getText().toString();
+                Carga carga1 = new Carga(descricaoCarga);
+                String nomeMotorista = etNomeMotorista.getText().toString();
+                Motorista motorista1 = new Motorista(nomeMotorista);
+                String numeroIdentificacao = etNumeroIdentificacao.getText().toString();
+                String dataHoraInicio = etDataHoraInicio.getText().toString();
+                String dataHoraFim = etDataHoraFim.getText().toString();
+
+                servicoTransporte = new ServicoTransporte(numeroIdentificacao,dataHoraInicio,dataHoraFim);
+
+                servicoTransporte.getCargas().add(carga1);
+                servicoTransporte.getMotoristas().add(motorista1);
+
+                // Feche o AlertDialog
+                dialog.dismiss();
+
+            }
+        });
+        // Exiba o AlertDialog
+        dialog.show();
+    }
+
     /**
      * Obtém o status do percurso.
      *
@@ -108,9 +150,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-    * Método chamado quando a atividade é retomada após estar em pausa ou após a criação inicial.
-    * Inicia a execução da thread de localização.
-    */
+     * Método chamado quando a atividade é retomada após estar em pausa ou após a criação inicial.
+     * Inicia a execução da thread de localização.
+     */
     @Override
     protected void onResume() {
         super.onResume();

@@ -8,7 +8,7 @@ import java.util.List;
  * data e hora de início e data e hora de fim, bem como listas de cargas e motoristas associados.
  */
 public class ServicoTransporte {
-    private int numeroIdentificacao;
+    private String numeroIdentificacao;
     private String dataHoraInicio;
     private String dataHoraFim;
     private List<Carga> cargas;
@@ -21,7 +21,7 @@ public class ServicoTransporte {
      * @param dataHoraInicio A data e hora de início do serviço de transporte.
      * @param dataHoraFim A data e hora de fim do serviço de transporte.
      */
-    public ServicoTransporte(int numeroIdentificacao, String dataHoraInicio, String dataHoraFim) {
+    public ServicoTransporte(String numeroIdentificacao, String dataHoraInicio, String dataHoraFim) {
         this.numeroIdentificacao = numeroIdentificacao;
         this.dataHoraInicio = dataHoraInicio;
         this.dataHoraFim = dataHoraFim;
@@ -34,7 +34,7 @@ public class ServicoTransporte {
      *
      * @return O número de identificação do serviço de transporte.
      */
-    public int getNumeroIdentificacao() {
+    public String getNumeroIdentificacao() {
         return numeroIdentificacao;
     }
 

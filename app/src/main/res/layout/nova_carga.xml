@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- layout_nova_carga.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#CCFFFF">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DIGITE SEUS DADOS DE VIAGEM"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etDescricaoCarga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descrição da Carga"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etNomeMotorista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome do Motorista"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etNumeroIdentificacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Identificação"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etDataHoraInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data e Hora de Início"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etDataHoraFim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data e Hora prevista Para Finalização"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Adicione outros campos relevantes aqui, se necessário -->
+
+    <Button
+    android:id="@+id/btnConfirmar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Confirmar"
+    android:backgroundTint="#00FF00"
+    android:layout_gravity="center_horizontal" />
+</LinearLayout>
