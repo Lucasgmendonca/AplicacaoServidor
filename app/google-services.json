@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746639270564",
+    "project_id": "av1-automacaoavancada-master",
+    "storage_bucket": "av1-automacaoavancada-master.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746639270564:android:a916cda80c4ba34cb8fc31",
+        "android_client_info": {
+          "package_name": "com.example.velmurugan.getcurrentlatitudeandlongitudeandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746639270564-6tlei50o1lbmiqd5br83p85dv06i24um.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALY20zkNr56F6UrgBjjW3NPWcUuqw6rlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746639270564-6tlei50o1lbmiqd5br83p85dv06i24um.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
