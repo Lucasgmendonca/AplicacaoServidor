@@ -27,7 +27,7 @@ public class JSONEscritor extends Thread {
     private double velocidadeMediaParcial;
     private double distanciaPercorrida;
     private long tempoParaDestinoFinal;
-    private int numeroIdentificacao;
+    private String numeroIdentificacao;
     private String dataHoraInicio;
     private String dataHoraFim;
     private String descricaoCarga;
@@ -42,10 +42,10 @@ public class JSONEscritor extends Thread {
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public JSONEscritor(double velocidadeMediaParcial, double distanciaPercorrida,
-                      long tempoParaDestinoFinal, int numeroIdentificacao, String dataHoraInicio,
-                      String dataHoraFim, String descricaoCarga, String nomeMotorista,
-                      int respectivoIntervalo, int intervaloTempoLocalizacoes,
-                      PublicKey publicKey, PrivateKey privateKey) {
+                        long tempoParaDestinoFinal, String numeroIdentificacao, String dataHoraInicio,
+                        String dataHoraFim, String descricaoCarga, String nomeMotorista,
+                        int respectivoIntervalo, int intervaloTempoLocalizacoes,
+                        PublicKey publicKey, PrivateKey privateKey) {
         this.velocidadeMediaParcial = velocidadeMediaParcial;
         this.distanciaPercorrida = distanciaPercorrida;
         this.tempoParaDestinoFinal = tempoParaDestinoFinal;
