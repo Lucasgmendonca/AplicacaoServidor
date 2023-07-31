@@ -23,5 +23,4 @@ public class Motorista {
     public String getNome() {
         return nome;
     }
-
 }

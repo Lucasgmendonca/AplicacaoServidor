@@ -13,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Base64;
+import java.util.concurrent.Semaphore;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -36,6 +37,7 @@ public class JSONEscritor extends Thread {
     private int intervaloTempoLocalizacoes;
     private final PublicKey publicKey;
     private final PrivateKey privateKey;
+    private static final Semaphore semaphore = new Semaphore(1);
 
     /**
      * Construtor da classe JSONEscritor.
@@ -69,6 +71,7 @@ public class JSONEscritor extends Thread {
     @Override
     public void run() {
         try {
+            semaphore.acquire();
             // Criação do objeto JSON com os dados recebidos no construtor.
             JSONObject dados = new JSONObject();
             dados.put("velocidadeMediaParcial", velocidadeMediaParcial);
@@ -105,6 +108,7 @@ public class JSONEscritor extends Thread {
             dataReference.child("dados").setValue(dadosCriptografadosString);
             dataReference.child("chaveAES").setValue(chaveAesCriptografadaString);
             dataReference.child("chaveRSA").setValue(chaveRsaString);
+            semaphore.release();
 
         } catch (Exception e) {
             e.printStackTrace();
