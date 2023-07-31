@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:background="@android:color/white">
 
-    <!-- TextView para exibir o resultado -->
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="411dp"
@@ -17,7 +16,6 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <!-- Botão para reiniciar o programa -->
     <Button
         android:id="@+id/btnReiniciar"
         android:layout_width="match_parent"

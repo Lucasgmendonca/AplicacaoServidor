@@ -13,7 +13,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-    <!-- Botão para iniciar um percurso -->
     <Button
         android:id="@+id/btnIniciarPercurso"
         android:layout_width="match_parent"
@@ -26,7 +25,6 @@
         android:layout_marginBottom="8dp"
         android:background="#00FF00" />
 
-    <!-- Título para a seção de localização -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,13 +35,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp" />
 
-    <!-- Layout para exibição da latitude -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Label para "Latitude" -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +48,6 @@
             android:textStyle="bold"
             android:textColor="#333333" />
 
-        <!-- Valor da latitude -->
         <TextView
             android:id="@+id/latitude"
             android:layout_width="match_parent"
@@ -63,13 +58,11 @@
 
     </LinearLayout>
 
-    <!-- Layout para exibição da longitude -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Label para "Longitude" -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +71,6 @@
             android:textStyle="bold"
             android:textColor="#333333" />
 
-        <!-- Valor da longitude -->
         <TextView
             android:id="@+id/longitude"
             android:layout_width="match_parent"
@@ -89,7 +81,6 @@
 
     </LinearLayout>
 
-    <!-- Título para a seção do veículo -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,7 +91,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp" />
 
-    <!-- Tempo para chegar ao destino final -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -110,7 +100,6 @@
         android:layout_marginTop="4dp"
         android:textColor="#333333" />
 
-    <!-- Valor do tempo para chegar ao destino final -->
     <TextView
         android:id="@+id/tempoParaDestinoFinal"
         android:layout_width="match_parent"
@@ -119,7 +108,6 @@
         android:textStyle="bold"
         android:textColor="#000000" />
 
-    <!-- Velocidade recomendada -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -129,7 +117,6 @@
         android:layout_marginTop="4dp"
         android:textColor="#333333" />
 
-    <!-- Valor da velocidade recomendada -->
     <TextView
         android:id="@+id/velocidadeRecomendada"
         android:layout_width="match_parent"
@@ -138,7 +125,6 @@
         android:textStyle="bold"
         android:textColor="#000000" />
 
-    <!-- Velocidade entre os 2 últimos pontos de medição -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -148,7 +134,6 @@
         android:layout_marginTop="4dp"
         android:textColor="#333333" />
 
-    <!-- Valor da velocidade média parcial -->
     <TextView
         android:id="@+id/velocidadeMediaParcial"
         android:layout_width="match_parent"
@@ -157,7 +142,6 @@
         android:textStyle="bold"
         android:textColor="#000000" />
 
-    <!-- Velocidade média total -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -167,7 +151,6 @@
         android:layout_marginTop="4dp"
         android:textColor="#333333" />
 
-    <!-- Valor da velocidade média total -->
     <TextView
         android:id="@+id/velocidadeMediaTotal"
         android:layout_width="match_parent"
@@ -176,7 +159,6 @@
         android:textStyle="bold"
         android:textColor="#000000" />
 
-    <!-- Tempo de deslocamento -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -186,7 +168,6 @@
         android:layout_marginTop="4dp"
         android:textColor="#333333" />
 
-    <!-- Valor do tempo de deslocamento -->
     <TextView
         android:id="@+id/tempoDeslocamento"
         android:layout_width="match_parent"
@@ -195,7 +176,6 @@
         android:textStyle="bold"
         android:textColor="#000000" />
 
-    <!-- Distância percorrida -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -205,7 +185,6 @@
         android:layout_marginTop="4dp"
         android:textColor="#333333" />
 
-    <!-- Valor da distância percorrida -->
     <TextView
         android:id="@+id/distanciaPercorrida"
         android:layout_width="match_parent"
@@ -214,7 +193,6 @@
         android:textStyle="bold"
         android:textColor="#000000" />
 
-    <!-- Consumo de combustível total -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -224,7 +202,6 @@
         android:layout_marginTop="4dp"
         android:textColor="#333333" />
 
-    <!-- Valor do consumo de combustível total -->
     <TextView
         android:id="@+id/consumoCombustivelTotal"
         android:layout_width="match_parent"
@@ -233,7 +210,6 @@
         android:textStyle="bold"
         android:textColor="#000000" />
 
-    <!-- Botão para reiniciar o programa -->
     <Button
         android:id="@+id/btnReiniciar"
         android:layout_width="match_parent"
