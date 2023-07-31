@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     // Método para exibir o novo layout para a entrada de dados da nova carga
     private void exibirLayoutParaInserirDados() {
         // Infla o layout personalizado
-        View novoLayoutView = getLayoutInflater().inflate(R.layout.nova_carga, null);
+        View novoLayoutView = getLayoutInflater().inflate(R.layout.layout_dados_servico, null);
 
         // Captura o EditText do layout personalizado
         EditText etDescricaoCarga = novoLayoutView.findViewById(R.id.etDescricaoCarga);
