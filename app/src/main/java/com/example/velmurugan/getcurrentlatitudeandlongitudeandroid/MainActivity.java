@@ -17,6 +17,11 @@ import androidx.core.content.ContextCompat;
 
 import com.google.firebase.FirebaseApp;
 
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -106,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         // Define o comportamento do botão de confirmação
         Button btnConfirmar = novoLayoutView.findViewById(R.id.btnConfirmar);
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 // Aqui, você pode pegar a entrada do usuário e criar uma nova instância de Carga
@@ -124,6 +130,29 @@ public class MainActivity extends AppCompatActivity {
 
                 // Feche o AlertDialog
                 dialog.dismiss();
+
+                try {
+                    // Gere um par de chaves RSA
+                    KeyPair keyPair = gerarParDeChavesRSA();
+                    PublicKey publicKey = keyPair.getPublic();
+                    PrivateKey privateKey = keyPair.getPrivate();
+
+                    // Escreva os dados no JSON criptografado usando a classe JSONEscritor
+                    JSONEscritor writerThread = new JSONEscritor(0, 0,
+                            0, servicoTransporte.getNumeroIdentificacao(), servicoTransporte.getDataHoraInicio(),
+                            servicoTransporte.getDataHoraFim(), servicoTransporte.getCargas().get(0).getDescricao(),
+                            servicoTransporte.getMotoristas().get(0).getNome(), 0, 0, publicKey, privateKey);
+
+                    writerThread.start();
+                    try {
+                        writerThread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
         });
@@ -259,5 +288,16 @@ public class MainActivity extends AppCompatActivity {
         builder.setView(resultadoView);
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    /**
+     * Método para gerar um par de chaves RSA.
+     *
+     * @return Um par de chaves RSA (pública e privada).
+     */
+    public static KeyPair gerarParDeChavesRSA() throws NoSuchAlgorithmException {
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+        keyPairGenerator.initialize(2048); // Tamanho da chave (2048 bits)
+        return keyPairGenerator.generateKeyPair();
     }
 }
