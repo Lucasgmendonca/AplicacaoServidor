@@ -91,9 +91,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Método para exibir o novo layout para a entrada de dados da nova carga
+    /**
+     * Exibe um layout personalizado em um AlertDialog para inserção de dados do serviço de transporte.
+     * Os dados inseridos pelo usuário são utilizados para criar uma instância de Carga e Motorista,
+     * bem como gerar um par de chaves RSA e escrever os dados em um JSON criptografado.
+     */
     private void exibirLayoutParaInserirDados() {
-        // Infla o layout personalizado
         View novoLayoutView = getLayoutInflater().inflate(R.layout.layout_dados_servico, null);
 
         // Captura o EditText do layout personalizado
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         EditText etDataHoraInicio = novoLayoutView.findViewById(R.id.etDataHoraInicio);
         EditText etDataHoraFim = novoLayoutView.findViewById(R.id.etDataHoraFim);
 
-        // Cria um AlertDialog personalizado
+        // Cria um AlertDialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(novoLayoutView);
         AlertDialog dialog = builder.create();
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                // Aqui, você pode pegar a entrada do usuário e criar uma nova instância de Carga
+                // Cria instâncias e da valor a variáveis através da entrada do usuário
                 String descricaoCarga = etDescricaoCarga.getText().toString();
                 Carga carga1 = new Carga(descricaoCarga);
                 String nomeMotorista = etNomeMotorista.getText().toString();
@@ -123,12 +126,13 @@ public class MainActivity extends AppCompatActivity {
                 String dataHoraInicio = etDataHoraInicio.getText().toString();
                 String dataHoraFim = etDataHoraFim.getText().toString();
 
-                servicoTransporte = new ServicoTransporte(numeroIdentificacao,dataHoraInicio,dataHoraFim);
+                servicoTransporte = new ServicoTransporte(numeroIdentificacao,dataHoraInicio,dataHoraFim); // Cria uma nova instância de ServicoTransporte com as informações inseridas
 
+                // Adiciona a carga e o motorista criados ao serviço de transporte
                 servicoTransporte.getCargas().add(carga1);
                 servicoTransporte.getMotoristas().add(motorista1);
 
-                // Feche o AlertDialog
+                // Fecha o AlertDialog após o processamento dos dados
                 dialog.dismiss();
 
                 try {
@@ -156,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        // Exiba o AlertDialog
+        // Exibe o AlertDialog para o usuário inserir os dados
         dialog.show();
     }
 
